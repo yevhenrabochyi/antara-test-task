@@ -47,6 +47,7 @@ const CanvasComponent: React.FC<Props> = ({
     const listToRender = useMemo(() => (assetsList.map((asset) => {
         if (checkIsVideo(asset.url)) {
             return <VideoAsset
+                key={asset.id}
                 globalPlay={globalPlay}
                 assetData={asset}
                 isSelected={selectedAsset === asset.id}
@@ -54,6 +55,7 @@ const CanvasComponent: React.FC<Props> = ({
                 changeSelectedAsset={changeSelectedAsset} />
 
         } else return <ImageAsset
+            key={asset.id}
             assetData={asset}
             isSelected={selectedAsset === asset.id}
             changeAssetData={changeAssetData}

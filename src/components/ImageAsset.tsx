@@ -30,6 +30,7 @@ const ImageAsset: React.FC<Props> = ({ assetData, isSelected, changeAssetData, c
             onDragStart={() => { changeSelectedAsset(assetData.id) }}
             onDragStop={(e, d) => { changeAssetData({ ...assetData, x: d.x, y: d.y }) }}
             onResize={(e, direction, ref, delta, position) => {
+                changeSelectedAsset(assetData.id)
                 changeAssetData({
                     ...assetData,
                     width: ref.style.width.slice(0, -2),
